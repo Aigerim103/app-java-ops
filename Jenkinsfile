@@ -15,5 +15,11 @@ pipeline {
                 git url: 'https://github.com/Aigerim103/app-java.git', branch: 'main'
             }
         }
+
+        stage('Compile') {
+            steps {
+                bat '%JAVA_HOME%\\bin\\javac src\\*.java'
+            }
+        }
     }
 }
