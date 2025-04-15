@@ -5,12 +5,15 @@ pipeline {
         jdk 'Java'
     }
 
-    enviroment {
-        JAVA_HOME = toll 'Java'
+    environment {
+        JAVA_HOME = tool 'Java'
     }
-                  stage(' Checkout ') {
-                      steps {
-                git.url; https://github.com/Aigerim103/app-java.git
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/Aigerim103/app-java.git'
             }
-          }
+        }
+    }
 }
