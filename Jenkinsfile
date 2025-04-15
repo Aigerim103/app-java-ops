@@ -2,17 +2,17 @@ pipeline {
     agent any
 
     tools {
-        jdk 'Java 21'
+        jdk 'Java'  // Use the actual name defined in Jenkins
     }
 
     environment {
-        JAVA_HOME = tool 'Java 21'
+        JAVA_HOME = tool 'Java'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Aigerim103/app-java.git', branch: 'main'
+                git url: 'https://github.com/Aigerim103/app-java-ops.git', branch: 'main'
             }
         }
 
