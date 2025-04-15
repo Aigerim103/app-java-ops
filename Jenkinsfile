@@ -18,7 +18,7 @@ pipeline {
 
         stage('Compile') {
             steps {
-                bat '"%JAVA_HOME%\\bin\\javac" d built\classes Main.java'
+                bat '"%JAVA_HOME%\\bin\\javac" -d built\\classes Main.java'
             }
         }
     }
