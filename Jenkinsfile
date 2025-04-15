@@ -1,46 +1,16 @@
 pipeline {
     agent any
-    parameters {
-        booleanParam(name: 'DEPLOY', defaultValue: true, description: 'Czy uruchomić etap wdrożenia?')
+
+    tools {
+        jdk 'Java'
     }
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building applications...'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing Applications...'
-            }
-        }
-                stage(' Checkout ') {
-                      steps {
-                echo 'Checkout...'
-            }
-        }
-                stage(' Compile  ') {
-                      steps {
-                echo 'Compile ...'
-            }
-        }
-              stage(' Prepare Manifest   ') {
-                      steps {
-                echo 'Prepare Manifest  ...'
-            }
-        }
-                     stage(' Package    ') {
-                      steps {
-                echo 'Package   ...'
-            }
-        }
-                stage('Run') {
-            when {
-                expression { params.Run }
-            }
-            steps {
-                echo 'Implementing applications...'
-            }
-        }
+
+    enviroment {
+        JAVA_HOME = toll 'Java'
     }
+                  stage(' Checkout ') {
+                      steps {
+                git.url; https://github.com/Aigerim103/app-java.git
+            }
+          }
 }
