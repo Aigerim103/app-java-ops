@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Aigerim103/app-java.git'
+                git url: 'https://github.com/Aigerim103/app-java.git', branch: 'main'
             }
         }
     }
