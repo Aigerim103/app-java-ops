@@ -35,16 +35,17 @@ pipeline {
 
         stage('Package') {
             steps {
-                bat '''
-                    if not exist built\\jar mkdir built\\jar
-                    "%JAVA_HOME%\\bin\\jar" cfm built\\jar\\MyApplication.jar built\\classes\\manifest.txt -C built\\classes .
-                '''
+                // Packaging compiled classes into a JAR file with a manifest file
+                bat 'if not exist build\\jar mkdir build\\jar'
+                // Uses a direct path to the manifest file located in buildclasses
+                bat 'cd build\\classes && "%JAVA_HOME%\\bin\\jar" cvmf MANIFEST.MF ..\\jar\\MyApplication.jar *'
             }
         }
 
         stage('Run') {
             steps {
-                bat '"%JAVA_HOME%\\bin\\java" -jar built\\jar\\MyApplication.jar'
+                // Running an application from a JAR file
+                bat '"%JAVA_HOME%\\bin\\java" -jar build\\jar\\MyApplication.jar'
             }
         }
     }
