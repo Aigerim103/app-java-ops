@@ -29,9 +29,9 @@ pipeline {
                 echo 'Prepare Manifest  ...'
             }
         }
-                     stage(' PPackage    ') {
+                     stage(' Package    ') {
                       steps {
-                echo 'PPackage   ...'
+                echo 'Package   ...'
             }
         }
                 stage('Run') {
